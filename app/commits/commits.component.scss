@@ -1,0 +1,50 @@
+@import "./../../styles/utils/variables";
+
+.toolbar {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: 40px;
+}
+
+.title {
+  font-family: cursive;
+  padding-left: 10px;
+}
+
+.list-card {
+  padding: 0;
+}
+
+.list-table {
+  width: 100%;
+}
+
+.list-table--row {
+  &:nth-child(odd) {
+    background-color: $colorBlackLightest;
+  }
+
+  &:hover {
+    background-color: $colorPrimary;
+    cursor: pointer;
+
+    td {
+      color: $colorWhite;
+    }
+  }
+
+  &:focus {
+    outline-color: $colorPrimaryDark;
+  }
+}
+
+.list-table--flag {
+  margin-right: 1.5rem;
+  width: 2.5rem;
+}
+
+.search {
+  padding: 30px;
+  border: 4px;
+}
+
