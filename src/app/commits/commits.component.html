@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class="toolbar">
+    <mat-icon routerLink="/repos">arrow_back</mat-icon>
+    Back to repo
+    <h1 class="title">Commits</h1>
+</mat-toolbar>
+<div class="app-frame">
+  <input
+    #searchValue
+    type="text"
+    class="search"
+    placeholder="Search By Commit Message"
+    (keyup)="search(searchValue.value)"
+  />
+  <mat-card class="list-card" *ngIf="filteredDataSource">
+    <table
+      mat-table
+      [dataSource]="filteredDataSource"
+      class="list-table"
+      matSort
+      matSortActive="name"
+      matSortDirection="asc"
+    >
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Author</th>
+        <td mat-cell *matCellDef="let element">{{ element.author }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef>Url</th>
+        <td mat-cell *matCellDef="let element">{{ element.url }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef>Message</th>
+        <td mat-cell *matCellDef="let element">{{ element.message }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card>
+</div>
